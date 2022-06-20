@@ -1,0 +1,27 @@
+.mainContainer {
+    
+  .active {
+    color: #2ec4b6 !important;
+    font-weight: bold !important;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &:hover {
+      font-weight: bold !important;
+      color: #2ec4b6 !important;
+    }
+
+    .activeCircle {
+      position: absolute;
+      bottom: -7.5px;
+      height: 15px;
+      width: 15px;
+      border-radius: 10000px;
+      background-color: #2ec4b6;
+    }
+  }
+}
