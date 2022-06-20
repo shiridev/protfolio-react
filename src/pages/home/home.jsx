@@ -1,63 +1,57 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Container, Navbar, NavDropdown, Nav } from "react-bootstrap";
-import { BsSun, BsMoon } from "react-icons/bs";
+import { Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { CustomNavbar } from "../../components/navbar/customNavbar";
+import { Row, Col } from "react-bootstrap";
+import sectionOnePortrait from "../../assets/images/sectionOne-portrait.png";
+import sectionOneTop from "../../assets/images/sectionOne-top.svg";
+import sectionOneBottom from "../../assets/images/sectionOne-bottom.svg";
 import "./home.scss";
-import themeSlice from "../../features/themeSlice/themeSlice";
 
 export const Home = () => {
-  const [navLinks, setNavLinks] = useState([
-    { name: "HOME", active: false, href: "#" },
-    { name: "ABOUT", active: false, href: "#" },
-    { name: "PROJECTS", active: false, href: "#" },
-    { name: "CONTACT", active: false, href: "#" },
-  ]);
   const theme = useSelector((state) => state.theme.defaultTheme);
-  const dispatch = useDispatch();
-
-  const navLinkOnClick = (index) => {
-    var links = navLinks.map((v, i) => {
-      return { name: v.name, active: i === index ? true : false, href: "#" };
-    });
-    setNavLinks(links);
-  };
-
-  const changeTheme = () => dispatch(themeSlice.actions.changeTheme());
 
   return (
     <Container fluid className="mainContainer" style={{ backgroundColor: theme.lightGrey }}>
       <Container className="px-0 px-lg-5">
-        <Navbar collapseOnSelect expand="lg" className="px-0 py-4 py-lg-3">
-          <Container>
-            <Navbar.Brand href="#home" style={{ fontWeight: "bold", color: theme.green, width: 100 }}>
-              Name Lastname
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mx-auto">
-                {navLinks.map((v, i) => {
-                  return (
-                    <Nav.Link
-                      onClick={() => navLinkOnClick(i)}
-                      className="py-0"
-                      href={v.href}
-                      key={i}
-                      active={v.active}
-                      style={{ color: v.active ? theme.green : theme.carbon, fontWeight: v.active ? "bold" : "normal" }}
-                    >
-                      {v.name}
-                      {v.active && <div className="activeCircle d-none d-lg-block"></div>}
-                    </Nav.Link>
-                  );
-                })}
-              </Nav>
-              <Nav style={{ width: 100, display: "flex", alignItems: "center", justifyContent: "end" }}>
-                {theme.type === "light" && <BsSun style={{ cursor: "pointer" }} color={theme.green} size="1.5em" onClick={changeTheme} />}
-                {theme.type === "dark" && <BsMoon style={{ cursor: "pointer" }} color={theme.green} size="1.5em" onClick={changeTheme} />}
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+        <CustomNavbar />
+        <section className="sectionOne" style={{ backgroundColor: theme.white }}>
+          <Row>
+            <Col sm={12} md={6}>
+              <div className="d-flex align-items-center justify-content-center h-100">
+                <img src={sectionOneTop} alt="sectionOne-portrait" className="sectionOne-top d-none d-md-block" />
+                <div className="d-flex flex-column align-items-start justify-content-center mx-4 mt-4">
+                  <h1 className="fw-bold m-0" style={{ color: theme.carbon }}>
+                    Hi! I Am
+                  </h1>
+                  <h1 className="fw-bold my-3" style={{ color: theme.green }}>
+                    Name Lastname
+                  </h1>
+                  <p className="mb-3" style={{ color: theme.lightCarbon }}>
+                    Proficient Frontend Developer & UI/UX Designer
+                  </p>
+                  <div className="d-flex align-items-center justify-content-center">
+                    <h1 className="fw-bold m-0 me-2" style={{ color: theme.green, fontSize: "3em" }}>
+                      +5
+                    </h1>
+                    <div>
+                      <p style={{ color: theme.lightCarbon }}>
+                        Years
+                        <br />
+                        Experiences
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <img src={sectionOneBottom} alt="sectionOne-portrait" className="sectionOne-bottom d-none d-md-block" />
+              </div>
+            </Col>
+            <Col sm={12} md={6}>
+              <div className="d-flex align-items-center justify-content-center">
+                <img src={sectionOnePortrait} alt="sectionOne-portrait" className="sectionOne-Portrait" />
+              </div>
+            </Col>
+          </Row>
+        </section>
       </Container>
     </Container>
   );

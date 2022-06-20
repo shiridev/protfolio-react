@@ -1,27 +1,49 @@
 .mainContainer {
-    
-  .active {
-    color: #2ec4b6 !important;
-    font-weight: bold !important;
-  }
+  overflow-y: auto;
+  height: 100vh;
+  transition: 0.3s ease-in-out;
 
-  .nav-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    &:hover {
-      font-weight: bold !important;
-      color: #2ec4b6 !important;
+  .sectionOne {
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px 0 rgba($color: #000000, $alpha: 0.1);
+    transition: 0.3s ease-in-out;
+
+    .sectionOne-Portrait {
+      height: 520px;
+      margin-bottom: 80px;
+      margin-top: 20px;
+
+      @media (max-width: 576px) {
+        width: 100%;
+        object-fit: contain;
+        margin-top: -20px;
+        margin-bottom: 50px;
+      }
+
+      @media (max-width: 768px) {
+        height: 450px;
+        object-fit: contain;
+      }
     }
 
-    .activeCircle {
+    .sectionOne-top {
       position: absolute;
-      bottom: -7.5px;
-      height: 15px;
-      width: 15px;
-      border-radius: 10000px;
-      background-color: #2ec4b6;
+      top: 0;
+      left: 0;
+    }
+
+    .sectionOne-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    p {
+      
+      margin: 0;
     }
   }
 }
