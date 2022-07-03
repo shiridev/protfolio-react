@@ -10,7 +10,7 @@ export const Theme = {
   },
   dark: {
     type: "dark",
-    white:'#4a4e69',
+    white:'#2b2d42',
     green: "#2EC4B6",
     yellow: "#FFD60A",
     carbon: "#fff",

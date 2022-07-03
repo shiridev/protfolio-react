@@ -25,6 +25,7 @@ export const CustomNavbar = () => {
       return { name: v.name, active: i === index ? true : false, href: "#" };
     });
     setNavLinks(links);
+    setNavExpanaded(false);
   };
 
   const changeTheme = () => dispatch(themeSlice.actions.changeTheme());
@@ -32,9 +33,7 @@ export const CustomNavbar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" className="px-0 py-3 navbarContainer">
       <Container className="px-0">
-        <Navbar.Brand style={{ fontWeight: "bold", color: theme.green, width: 100 }}>
-          Name Lastname
-        </Navbar.Brand>
+        <Navbar.Brand style={{ fontWeight: "bold", color: theme.green, width: 100 }}>Name Lastname</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" className="navbarTogglerButton px-0" onClick={() => setNavExpanaded(!navExpanded)}>
           {navExpanded ? (
             <motion.div
