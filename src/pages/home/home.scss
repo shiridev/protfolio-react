@@ -5,76 +5,98 @@
   transition: 0.3s ease-in-out;
   position: relative;
 
-  .sectionOne {
-    background-color: white;
+  .sectionContainer {
+    box-shadow: 0 5px 20px 0 rgba($color: #000000, $alpha: 0.1);
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 20px 0 rgba($color: #000000, $alpha: 0.1);
     transition: 0.3s ease-in-out;
-    margin-bottom: calc(144px);
+    .sectionOne {
+      .sectionOne-Portrait {
+        height: 520px;
+        margin-top: 20px;
 
-    .sectionOne-Portrait {
-      height: 520px;
-      margin-bottom: 80px;
-      margin-top: 20px;
+        @media (max-width: 576px) {
+          width: 100%;
+          object-fit: contain;
+          margin-top: -20px;
+          margin-bottom: 50px;
+        }
 
-      @media (max-width: 576px) {
-        width: 100%;
-        object-fit: contain;
-        margin-top: -20px;
-        margin-bottom: 50px;
+        @media (max-width: 768px) {
+          height: 450px;
+          object-fit: contain;
+        }
       }
 
-      @media (max-width: 768px) {
-        height: 450px;
-        object-fit: contain;
+      .sectionOne-top {
+        position: absolute;
+        top: 0;
+        left: 0;
       }
-    }
 
-    .sectionOne-top {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .socialLinksContainer {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      align-items: center;
-
-      a {
-        padding: 10px;
-        border-radius: 100000px;
+      .socialLinksContainer {
+        list-style: none;
+        padding: 0;
         display: flex;
         align-items: center;
-        justify-content: center;
-        transition: 0.3s;
 
-        &:hover {
-          transform: scale(1.2);
+        a {
+          padding: 10px;
+          border-radius: 100000px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: 0.3s;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+
+        @media (max-width: 576px) {
+          width: 100%;
+          justify-content: space-between;
+
+          li {
+            margin: 0 !important;
+          }
         }
       }
+
+      .sectionOne-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .sectionTwo {
+      margin-top: 120px;
 
       @media (max-width: 576px) {
-        width: 100%;
-        justify-content: space-between;
-
-        li {
-          margin: 0 !important;
-        }
+        margin-top: 80px;
       }
     }
 
-    .sectionOne-bottom {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+    .sectionThree {
+      margin-top: 120px;
 
-    p {
-      margin: 0;
+      @media (max-width: 576px) {
+        margin-top: 80px;
+      }
+    }
+  }
+
+  .sectionFour {
+    margin-top: 120px;
+
+    @media (max-width: 576px) {
+      margin-top: 80px;
     }
   }
 }

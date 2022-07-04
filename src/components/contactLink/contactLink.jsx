@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
-import "./techCard.scss";
+import "./contactLink.scss";
 
-export const TechCard = (props) => {
+export const ContactLink = (props) => {
   const theme = useSelector((state) => state.theme.defaultTheme);
 
   return (
-    <div
+    <a
+      href={props.href}
       className="techCardContainer p-3"
       style={{ border: `1px solid ${theme.lightGrey}`, backgroundColor: theme.type === "light" ? "white" : theme.lightGrey }}
     >
@@ -13,6 +14,6 @@ export const TechCard = (props) => {
       <span className="techName" style={{ color: props.color }}>
         {props.name}
       </span>
-    </div>
+    </a>
   );
 };

@@ -90,7 +90,7 @@ export const CustomNavbar = () => {
                   damping: 20,
                 }}
               >
-                <BsSun className="sunIcon" color={theme.green} size="1.5em" onClick={changeTheme} />
+                <BsSun className="icon sunIcon" color={theme.green} size="1.5em" onClick={changeTheme} />
               </motion.div>
             )}
             {theme.type === "dark" && (
@@ -103,7 +103,7 @@ export const CustomNavbar = () => {
                   damping: 20,
                 }}
               >
-                <BsMoon className="moonIcon" color="white" size="1.5em" onClick={changeTheme} />
+                <BsMoon className="icon moonIcon" color="white" size="1.5em" onClick={changeTheme} />
               </motion.div>
             )}
           </Nav>

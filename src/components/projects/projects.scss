@@ -1,0 +1,32 @@
+.projectCardContainer {
+  position: relative;
+  border-radius: 10px;
+
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+
+    @media (max-width: 768px) {
+      height: 100px;
+    }
+
+    @media (max-width: 576px) {
+      height: 200px;
+    }
+  }
+
+  .techIcon {
+    padding: 10px;
+    border-radius: 100000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
