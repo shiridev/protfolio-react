@@ -1,19 +1,15 @@
 import { Col, Row } from "react-bootstrap";
+import { DiJavascript } from "react-icons/di";
+import { FaSass } from "react-icons/fa";
+import { SiAdobexd, SiBootstrap, SiDart, SiFlutter, SiHtml5, SiReact, SiRedux } from "react-icons/si";
 import { useSelector } from "react-redux";
 import image1 from "../../assets/images/slide1.jpg";
+import image10 from "../../assets/images/slide10.jpg";
 import image2 from "../../assets/images/slide2.jpg";
-import image3 from "../../assets/images/slide3.jpg";
 import image4 from "../../assets/images/slide4.jpg";
 import image5 from "../../assets/images/slide5.jpg";
-import image6 from "../../assets/images/slide6.jpg";
-import image7 from "../../assets/images/slide7.jpg";
-import image8 from "../../assets/images/slide8.jpg";
 import image9 from "../../assets/images/slide9.jpg";
-import image10 from "../../assets/images/slide10.jpg";
 import "./projects.scss";
-import { SiReact, SiRedux, SiHtml5, SiBootstrap, SiAdobexd, SiFlutter, SiDart } from "react-icons/si";
-import { FaSass } from "react-icons/fa";
-import { DiJavascript } from "react-icons/di";
 
 export const Projects = () => {
   const theme = useSelector((state) => state.theme.defaultTheme);
@@ -67,18 +63,22 @@ export const Projects = () => {
 
   return (
     <Row className="g-3 px-3">
-      {images.map((image) => {
+      {images.map((image, index) => {
         return (
-          <Col sm={6} md={4}>
+          <Col sm={12} md={4} key={index}>
             <div
               className="projectCardContainer p-3"
               style={{ border: `1px solid ${theme.lightGrey}`, backgroundColor: theme.type === "light" ? "white" : theme.lightGrey }}
             >
               <img src={image.src} alt="" />
               <div className="d-flex align-items-center flex-wrap">
-                {image.techs.map((techIcon) => {
+                {image.techs.map((techIcon, index) => {
                   return (
-                    <div className="techIcon me-3 mt-3" style={{ backgroundColor: theme.type === "light" ? theme.lightGrey : theme.white }}>
+                    <div
+                      key={index}
+                      className="techIcon me-3 mt-3"
+                      style={{ backgroundColor: theme.type === "light" ? theme.lightGrey : theme.white }}
+                    >
                       {techIcon}
                     </div>
                   );

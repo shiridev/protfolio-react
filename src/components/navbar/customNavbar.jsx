@@ -8,10 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 import themeSlice from "../../features/themeSlice/themeSlice";
 import "./customNavbar.scss";
 
-export const CustomNavbar = () => {
+export const CustomNavbar = (props) => {
   const [navLinks, setNavLinks] = useState([
-    { name: "HOME", active: false, href: "#" },
     { name: "ABOUT", active: false, href: "#" },
+    { name: "TECHNOLOGIES", active: false, href: "#" },
     { name: "PROJECTS", active: false, href: "#" },
     { name: "CONTACT", active: false, href: "#" },
   ]);
@@ -26,6 +26,7 @@ export const CustomNavbar = () => {
     });
     setNavLinks(links);
     setNavExpanaded(false);
+    props.homeRefs[index].current.scrollIntoView({ behavior: "smooth" });
   };
 
   const changeTheme = () => dispatch(themeSlice.actions.changeTheme());

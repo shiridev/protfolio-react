@@ -1,12 +1,31 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { AiOutlineWhatsApp } from "react-icons/ai";
+import { AiFillCode, AiOutlineWhatsApp } from "react-icons/ai";
 import { DiJavascript } from "react-icons/di";
-import { FaSass } from "react-icons/fa";
+import { FaSass, FaUserAlt } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
-import { SiGmail } from "react-icons/si";
+import { HiMail } from "react-icons/hi";
+import { IoLayers } from "react-icons/io5";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { SiAdobexd, SiAntdesign, SiBootstrap, SiCss3, SiDart, SiDribbble, SiFlutter, SiHtml5, SiJquery, SiReact, SiRedux } from "react-icons/si";
+import {
+  SiAdobexd,
+  SiAntdesign,
+  SiBootstrap,
+  SiCss3,
+  SiDart,
+  SiDribbble,
+  SiFlutter,
+  SiGithub,
+  SiGmail,
+  SiHtml5,
+  SiJquery,
+  SiLinkedin,
+  SiReact,
+  SiRedux,
+  SiSkype,
+  SiWhatsapp,
+} from "react-icons/si";
 import { TbBrandLinkedin, TbBrandSkype } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import sectionOnePortrait from "../../assets/images/sectionOne-portrait.png";
@@ -20,12 +39,16 @@ import "./home.scss";
 
 export const Home = () => {
   const theme = useSelector((state) => state.theme.defaultTheme);
+  const sectionTwoRef = useRef(null);
+  const sectionThreeRef = useRef(null);
+  const sectionFourRef = useRef(null);
+  const sectionFiveRef = useRef(null);
 
   return (
     <Container fluid className="mainContainer" style={{ backgroundColor: theme.lightGrey }}>
       <MyParticles opacity={theme.type === "dark" ? 1 : 0} />
       <Container className="px-0 px-lg-5 pb-5 mb-5">
-        <CustomNavbar />
+        <CustomNavbar homeRefs={[sectionTwoRef, sectionThreeRef, sectionFourRef, sectionFiveRef]} />
         <div className="sectionContainer" style={{ backgroundColor: theme.white }}>
           <section className="sectionOne">
             <Row>
@@ -107,7 +130,38 @@ export const Home = () => {
               </Col>
             </Row>
           </section>
-          <section className="sectionTwo">
+          <section className="sectionTwo px-3" ref={sectionTwoRef}>
+            <div className="title mb-5">
+              <div className="icon me-3" style={{ backgroundColor: theme.lightGrey }}>
+                <FaUserAlt color={theme.green} size="1.5em" />
+              </div>
+              <h1 className="fw-bold m-0 text-center" style={{ color: theme.carbon }}>
+                About Me
+              </h1>
+            </div>
+            <div
+              className="paragraphContainer p-3"
+              style={{ border: `1px solid ${theme.lightGrey}`, backgroundColor: theme.type === "light" ? "white" : theme.lightGrey }}
+            >
+              <p style={{ color: theme.carbon }}>
+                Specialist Frontend developer with 5+ years of experience building and maintaining responsive web and mobile applications with modern
+                JavaScript and mobile frameworks. Proficient in React.js, Redux, Flutter/Dart, and familiar with Backend development with Node.js, and
+                Express.js. An engineer with an analytical mindset and troubleshooting skills who have worked in agile software engineering
+                environments and cross-functional teams that involve more than 35 members and on projects with more than 5 million clients. An
+                experienced UI Designer who can bridge the gap between graphical design and technical implementation with hands-on coding of complex
+                user interfaces.
+              </p>
+            </div>
+          </section>
+          <section className="sectionThree" ref={sectionThreeRef}>
+            <div className="title mb-5">
+              <div className="icon me-3" style={{ backgroundColor: theme.lightGrey }}>
+                <AiFillCode color={theme.green} size="1.5em" />
+              </div>
+              <h1 className="fw-bold m-0 text-center" style={{ color: theme.carbon }}>
+                Technologies
+              </h1>
+            </div>
             <Row className="g-3 px-3 mb-3">
               <Col sm={12} md={4} lg={3}>
                 <TechCard icon={<SiReact color="#00D8FF" size="2em" />} color="#00D8FF" name="React" />
@@ -151,16 +205,64 @@ export const Home = () => {
               </Col>
             </Row>
           </section>
-          <section className="sectionThree">
-            <h1 className="fw-bold m-0 text-center mb-5" style={{ color: theme.carbon }}>
-              Latest Projects
-            </h1>
+          <section className="sectionFour" ref={sectionFourRef}>
+            <div className="title mb-5">
+              <div className="icon me-3" style={{ backgroundColor: theme.lightGrey }}>
+                <IoLayers color={theme.green} size="1.5em" />
+              </div>
+              <h1 className="fw-bold m-0 text-center" style={{ color: theme.carbon }}>
+                Latest Projects
+              </h1>
+            </div>
             <Projects />
           </section>
-          <section className="sectionFour">
+          <section className="sectionFive" ref={sectionFiveRef}>
+            <div className="title mb-5">
+              <div className="icon me-3" style={{ backgroundColor: theme.lightGrey }}>
+                <HiMail color={theme.green} size="1.5em" />
+              </div>
+              <h1 className="fw-bold m-0 text-center" style={{ color: theme.carbon }}>
+                Contact Me
+              </h1>
+            </div>
             <Row className="g-3 px-3 mb-3">
-              <Col sm={12} md={4} lg={3}>
-                <ContactLink icon={<SiGmail color="#ef233c" size="2em" />} color="#ef233c" name="Gmail" href="#" />
+              <Col sm={12} md={4}>
+                <ContactLink
+                  icon={<SiGmail color="#ef233c" size="2em" />}
+                  color="#ef233c"
+                  name="Gmail"
+                  href="mailto:shiri.mohammadhossein@gmail.com"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+                <ContactLink icon={<SiWhatsapp color="#06d6a0" size="2em" />} color="#06d6a0" name="Whatsapp" href="https://wa.me/+989130186483" />
+              </Col>
+              <Col sm={12} md={4}>
+                <ContactLink
+                  icon={<SiSkype color="#4895ef" size="2em" />}
+                  color="#4895ef"
+                  name="Skype"
+                  href="https://join.skype.com/invite/BQD75pUgjVWu/"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+                <ContactLink
+                  icon={<SiLinkedin color="#0077b6" size="2em" />}
+                  color="#0077b6"
+                  name="Linkedin"
+                  href="https://www.linkedin.com/in/shiridev/"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+                <ContactLink
+                  icon={<SiGithub color={theme.carbon} size="2em" />}
+                  color={theme.carbon}
+                  name="GitHub"
+                  href="https://github.com/shiridev/"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+                <ContactLink icon={<SiDribbble color="#ef476f" size="2em" />} color="#ef476f" name="Dribbble" href="https://dribbble.com/shiridev/" />
               </Col>
             </Row>
           </section>
