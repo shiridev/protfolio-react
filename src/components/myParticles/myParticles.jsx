@@ -7,9 +7,5 @@ export const MyParticles = (props) => {
   const particlesInit = async (main) => {
     await loadFull(main);
   };
-
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
-  return <Particles id="tsparticles" init={particlesInit} loaded={particlesLoaded} options={particlesConfig} style={{ opacity: props.opacity }} />;
+  return <Particles id="tsparticles" init={particlesInit} options={particlesConfig} style={{ opacity: props.opacity }} />;
 };

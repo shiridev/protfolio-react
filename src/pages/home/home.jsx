@@ -24,7 +24,7 @@ import {
   SiReact,
   SiRedux,
   SiSkype,
-  SiWhatsapp,
+  SiWhatsapp
 } from "react-icons/si";
 import { TbBrandLinkedin, TbBrandSkype } from "react-icons/tb";
 import { useSelector } from "react-redux";

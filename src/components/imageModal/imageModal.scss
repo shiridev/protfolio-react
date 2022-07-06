@@ -1,0 +1,37 @@
+.modal-content {
+  border: none !important;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  .imageModalBody {
+    padding: 0;
+
+    img {
+      height: 600px;
+      width: 100%;
+      object-fit: cover;
+
+      @media (max-width: 576px) {
+        height: 100%;
+      }
+    }
+
+    .closeIcon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 30px;
+      background-color: white;
+      border-radius: 1000000px;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 10px 0 rgba($color: #000000, $alpha: 0.1);
+      border: 1px solid #f8f9fa;
+      cursor: pointer;
+    }
+  }
+}

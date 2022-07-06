@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { DiJavascript } from "react-icons/di";
 import { FaSass } from "react-icons/fa";
+import { MdOutlineZoomOutMap } from "react-icons/md";
 import { SiAdobexd, SiBootstrap, SiDart, SiFlutter, SiHtml5, SiReact, SiRedux } from "react-icons/si";
 import { useSelector } from "react-redux";
 import image1 from "../../assets/images/slide1.jpg";
@@ -9,6 +11,7 @@ import image2 from "../../assets/images/slide2.jpg";
 import image4 from "../../assets/images/slide4.jpg";
 import image5 from "../../assets/images/slide5.jpg";
 import image9 from "../../assets/images/slide9.jpg";
+import { ImageModal } from "../imageModal/imageModal";
 import "./projects.scss";
 
 export const Projects = () => {
@@ -61,8 +64,17 @@ export const Projects = () => {
     },
   ];
 
+  const [scaleUpImage, setScaleUpImage] = useState(false);
+  const [selectedImageSrc, setSelectedImageSrc] = useState();
+
+  const onScaleUpImage = (src) => {
+    setScaleUpImage(true);
+    setSelectedImageSrc(src);
+  };
+
   return (
     <Row className="g-3 px-3">
+      <ImageModal show={scaleUpImage} hide={() => setScaleUpImage(false)} imagesrc={selectedImageSrc} />
       {images.map((image, index) => {
         return (
           <Col sm={12} md={4} key={index}>
@@ -70,7 +82,14 @@ export const Projects = () => {
               className="projectCardContainer p-3"
               style={{ border: `1px solid ${theme.lightGrey}`, backgroundColor: theme.type === "light" ? "white" : theme.lightGrey }}
             >
-              <img src={image.src} alt="" />
+              <div className="imageContainer">
+                <div className="overlay">
+                  <div className="zoomIcon p-3" onClick={() => onScaleUpImage(image.src)}>
+                    <MdOutlineZoomOutMap size="1.5em" />
+                  </div>
+                </div>
+                <img src={image.src} alt="" />
+              </div>
               <div className="d-flex align-items-center flex-wrap">
                 {image.techs.map((techIcon, index) => {
                   return (
