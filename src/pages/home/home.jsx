@@ -24,13 +24,12 @@ import {
   SiReact,
   SiRedux,
   SiSkype,
-  SiWhatsapp,
+  SiWhatsapp
 } from "react-icons/si";
 import { TbBrandLinkedin, TbBrandSkype } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import sectionOnePortrait from "../../assets/images/sectionOne-portrait.png";
 import sectionOneTop from "../../assets/images/sectionOne-top.svg";
-import sectionTwoPortrait from "../../assets/images/sectionTwo-portrait.png";
 import { ContactLink } from "../../components/contactLink/contactLink";
 import { MyParticles } from "../../components/myParticles/myParticles";
 import { CustomNavbar } from "../../components/navbar/customNavbar";
@@ -132,31 +131,27 @@ export const Home = () => {
             </Row>
           </section>
           <section className="sectionTwo px-3" ref={sectionTwoRef}>
-            <Row className="row g-3">
-              <Col sm={12} md={6} className="d-none d-md-block">
-                <div className="sectionTwoPortraitContainer">
-                  <img src={sectionTwoPortrait} alt="" />
-                </div>
-              </Col>
-              <Col sm={12} md={6}>
-                <div className="paragraphContainer">
-                  <div className="title mb-5 mb-md-3">
-                    <div className="icon me-3" style={{ backgroundColor: theme.lightGrey }}>
-                      <FaUser color={theme.green} size="1.5em" />
-                    </div>
-                    <h1 className="fw-bold m-0 text-center" style={{ color: theme.carbon }}>
-                      About Me
-                    </h1>
-                  </div>
-                  <p style={{ color: theme.carbon }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                    in culpa qui officia deserunt mollit anim id est laborum.
-                  </p>
-                </div>
-              </Col>
-            </Row>
+            <div className="title mb-5">
+              <div className="icon me-3" style={{ backgroundColor: theme.lightGrey }}>
+                <FaUser color={theme.green} size="1.5em" />
+              </div>
+              <h1 className="fw-bold m-0 text-center" style={{ color: theme.carbon }}>
+                About Me
+              </h1>
+            </div>
+            <div
+              className="paragraphContainer p-3"
+              style={{ border: `1px solid ${theme.lightGrey}`, backgroundColor: theme.type === "light" ? "white" : theme.lightGrey }}
+            >
+              <p style={{ color: theme.carbon }}>
+                Specialist Frontend developer with 5+ years of experience building and maintaining responsive web and mobile applications with modern
+                JavaScript and mobile frameworks. Proficient in React.js, Redux, Flutter/Dart, and familiar with Backend development with Node.js, and
+                Express.js. An engineer with an analytical mindset and troubleshooting skills who have worked in agile software engineering
+                environments and cross-functional teams that involve more than 35 members and on projects with more than 5 million clients. An
+                experienced UI Designer who can bridge the gap between graphical design and technical implementation with hands-on coding of complex
+                user interfaces.
+              </p>
+            </div>
           </section>
           <section className="sectionThree" ref={sectionThreeRef}>
             <div className="title mb-5">

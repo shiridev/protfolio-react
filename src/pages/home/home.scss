@@ -12,12 +12,12 @@
     overflow: hidden;
     transition: 0.3s ease-in-out;
 
-    .title {
+    .title{
       display: flex;
       align-items: center;
       justify-content: center;
 
-      .icon {
+      .icon{
         height: 40px;
         width: 40px;
         border-radius: 10px;
@@ -92,50 +92,14 @@
     }
 
     .sectionTwo {
-      margin-top: 200px;
-      position: relative;
+      margin-top: 120px;
 
       @media (max-width: 576px) {
         margin-top: 80px;
       }
 
-      .sectionTwoPortraitContainer {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
-        border-radius: 10px;
-
-        img {
-          height: 500px;
-          width: 100%;
-          object-fit: contain;
-
-          @media (max-width: 768px) {
-            height: 400px;
-          }
-
-          @media (max-width: 576px) {
-            height: 350px;
-          }
-        }
-      }
-
       .paragraphContainer {
         border-radius: 10px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        flex-direction: column;
-        height: 100%;
-        position: relative;
-
-        @media (max-width: 576px) {
-          margin-top: 0;
-          align-items: center;
-        }
 
         p {
           text-align: justify;
